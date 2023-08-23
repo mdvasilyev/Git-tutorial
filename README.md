@@ -18,6 +18,11 @@ Contents:
    3. SSH keys
    4. Connect local and remote repos
    5. Synchronization
+   6. Navigation
+      1. Hash
+      2. Log
+      3. HEAD
+      4. File status
 5. Project structure
    1. README.md
 
@@ -238,6 +243,47 @@ Next time you can omit `-u` flag and use just
 git push
 ```
 Now you can see all commits on GitHub by pressing `commits` button in the top right corner.
+
+### 6. Navigation
+#### 1. Hash
+Hash is the commit **ID**entifier. It is printed right after `commit` word:
+
+![hash](hash.jpeg)
+
+Git converts commit information using the SHA-1 algorithm and calculates a unique hash identifier for each of them.
+
+Hash is the main identifier of the commit and allows you to find out its author, date and contents of the committed files.
+
+All hashes, as well as the *correspondences table* `hash → commit` information Git stores in the folder `.git`.
+
+#### 2. Log
+```bash
+git log
+```
+prints commits. Each of them consists of
+- hash
+- author
+- date
+- comment
+
+You can get short log by typing
+```bash
+git log --oneline
+```
+It will contain short hash (its length is calculated the way to be unique in the particular git repository) and comment.
+
+#### 3. HEAD
+`HEAD` is a file in `.git` directory. It points to the latest commit. Technically `HEAD` file contains link to the latest commit.
+
+You can use `HEAD` instead of latest commit hash.
+
+#### 4. File status
+File can be in one or two statuses from the list:
+- `untracked`: Git knows about the file but doesn't track it.
+- `staged`: Git places the file in *staging area* after `git add` command. The file is now prepared to be commited.
+- `tracked`: Git has already tracked the file.
+- `modified`: Git spotted some changes while comparing the latest version of the file and the current one.
+![status](status.png)
 
 ## 5. Project structure
 ### 1. README.md
