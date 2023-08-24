@@ -284,6 +284,7 @@ File can be in one or two statuses from the list:
 - `staged`: Git places the file in *staging area* after `git add` command. The file is now prepared to be commited.
 - `tracked`: Git has already tracked the file.
 - `modified`: Git spotted some changes while comparing the latest version of the file and the current one.
+
 ![status](status.png)
 
 ## 5. Project structure
