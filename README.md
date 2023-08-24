@@ -25,6 +25,7 @@ Contents:
       4. File status
 5. Project structure
    1. README.md
+   2. Commits commenting
 
 ## 1. Info
 - Git is a program used for version control.
@@ -296,3 +297,11 @@ In **README.md** file developers always store the following info:
 README.md file is written in `markdown` markup language.
 
 Basic usage can be studied [here](https://www.markdownguide.org/ "markdown guide").
+
+### 2. Commits commenting
+```bash
+git log --oneline
+```
+shows max 72 characters comment. That is why it it important to structure comments correctrly according to the rules:
+- [corporate style](https://www.conventionalcommits.org/ru/v1.0.0-beta.4/#%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F)
+- [GitHub style](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
