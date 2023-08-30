@@ -25,7 +25,11 @@ Contents:
       4. File status
 5. Project structure
    1. README.md
-   2. Commits commenting
+   2. .gitignore
+6. Commits
+   1. Commenting
+   2. Time travelling
+   3. Spotting differences
 
 ## 1. Info
 - Git is a program used for version control.
@@ -77,6 +81,9 @@ To lauch a terminal or `CLI` (Command Line Interface) you need to do:
   - `-r` - recursively remove all items inside directory
   - `-f` - force to remove
 - `rmdir` - remove directory
+- `echo` - output parameter to the console
+  - `> <file>` - clear the `<file>` and write parameter
+  - `>> <file>` - write parameter
 - `&&` - execute several commands
 
 ## 3. Usage
@@ -299,10 +306,62 @@ README.md file is written in `markdown` markup language.
 
 Basic usage can be studied [here](https://www.markdownguide.org/ "markdown guide").
 
-### 2. Commits commenting
+### 2. .gitignore
+`.gitignore` is a text file in the root directory used by git for ignoring tracking some files.
+
+Parameters:
+- `*` - any string
+- `?` - any symbol
+- `[...]` - any symbol from the range `[...]`
+- `/` - applies to root directory
+- `**` - any number of directories
+- `!` - inversion
+
+## 6. Commits
+### 1. Commenting
 ```bash
 git log --oneline
 ```
 shows max 72 characters comment. That is why it it important to structure comments correctrly according to the rules:
 - [corporate style](https://www.conventionalcommits.org/ru/v1.0.0-beta.4/#%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F)
 - [GitHub style](https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53)
+
+To correct commit without changing comment use
+```bash
+git commit --amend --no-edit
+```
+to also change comment use
+```bash
+git commit --amend -m "New comment"
+```
+*NB. Correction deals with the latest commit!*
+
+### 2. Time travelling
+To unstage changes use
+```bash
+git restore --staged <file>
+```
+To travel in time use
+```bash
+git reset --hard <commit hash>
+```
+*NB. Commits made after that very one will be deleted!*
+
+To remove unintentional changes use
+```bash
+git restore <file>
+```
+
+### 3. Spotting differences
+To spot the difference between the latest commit (`HEAD`) and `modified` files use
+```bash
+git diff
+```
+To spot the difference between the latest commit (`HEAD`) and `staged` files use
+```bash
+git diff --staged
+```
+To spot the difference between two commits use
+```bash
+git diff <hash1> <hash2>
+```
